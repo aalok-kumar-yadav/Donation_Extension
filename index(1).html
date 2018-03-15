@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+ <head>
+  <html lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width", intial-scale=1,shrink-to-fit=no">
+   <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="style1.css">
+    <script>
+    window.onload=function(){
+        var req = $.ajax({url: "http://2ef597b3.ngrok.io/data/", type: "GET", dataType: "json", crossDomain: true})
+        req.done(function(data){
+            console.log(data);
+            var output = document.getElementById('output');
+     var output1 = document.getElementById('output1');
+      var output2 = document.getElementById('output2');
+    var i=0;
+    var val="";
+    var items=data
+
+    
+    data.forEach(function(data) {
+      console.log("hh");
+      console.log(data);
+      var output = "<h1>"+data['headline']+"</h1>";
+      output+= '<img src='+data["img_url"]+' alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">';
+      output+= '<article><p>'+data["description"]+'</p></article>';
+      output+= '<a class="btn btn-blog pull-right marginBottom10 mybtn" href="http://bootsnipp.com/user/snippets/2RoQ">READ MORE</a><a class="btn btn-blog pull-right marginBottom10 " href="payment.php" ">DONATE</a>';
+      $('.blogShort').after(output);
+
+    
+        req.fail(function(jqXHR, textStatus) {
+  alert( "Request failed: " + textStatus );
+});
+      
+        
+
+}
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+<header>
+<img  style="float:left;" src="3.png" alt="post img">
+  <h1>We Can't Help Everyone<span>But We Can Help Someone</span></h1>
+  </header>
+<div class="container">
+     <div id="blog" class="row"> 
+                
+                  <div class="col-sm-2 paddingTop20">
+                 </div>
+                 <div class="col-md-10 blogShort">
+                 <div></div>
+                  </div>
+                 
+</div>
+</body>
+</html>
