@@ -9,6 +9,7 @@ response = requests.get("https://dev132-toi-times-of-india-v1.p.mashape.com/news
     "Accept": "application/json"
   }
 )
+
 tex = response.text
 print(type(tex))
 data = json.loads(tex)
@@ -36,11 +37,5 @@ for i in list_of_news:
     else:
         print("No Bad News")
 
-print(headline)
-print(date)
-print(url)
-print(cap)
-print(photo)
-print(thumb)
-print(photo_cap)
+
 
